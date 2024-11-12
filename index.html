@@ -1,12 +1,375 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIONRoid - AI Solutions</title>
+<html><head><base href="/" /><title>AIONRoid - AI Solutions for the Future</title>
+<style>
+:root {
+  --primary: #2D3BD2;
+  --secondary: #19D4C7;
+  --dark: #1D1F2F;
+  --light: #F5F7FF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background: var(--light);
+  padding-top: 82px;
+}
+
+.header {
+  background: #000000;
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+  width: auto;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(29, 31, 47, 0.9) 0%, rgba(45, 59, 210, 0.9) 100%),
+              url('https://scontent.fver1-1.fna.fbcdn.net/v/t39.30808-6/466479459_122128141544453775_8090882865447891237_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=HyOtbeXbTU4Q7kNvgHrpAO2&_nc_zt=23&_nc_ht=scontent.fver1-1.fna&_nc_gid=AdmK5k0vlEA8oOP1zZ-ySyY&oh=00_AYBbvPlgi9xmHd_vf8KX02S4cgePS8vc2unai9UxFReN9Q&oe=6739933C');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 6rem 2rem;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: slideUp 1s ease-out forwards;
+}
+
+.solution-card h3 a {
+  color: var(--dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.solution-card h3 a:hover {
+  color: var(--primary);
+}
+
+.section {
+  padding: 5rem 2rem;
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.solution-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.solution-card.expanded {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.solution-card ul {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.solution-card.expanded ul {
+  max-height: 200px;
+}
+
+.solution-card li {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.solution-card li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin-top: 2rem;
+}
+
+.cta-button:hover {
+  background: #14b5aa;
+  transform: translateY(-2px);
+}
+
+.cta-button.clicked {
+  animation: buttonClick 0.4s ease;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--primary);
+  border-radius: 5px;
+}
+
+.footer {
+  background: var(--dark);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(50px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes buttonClick {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h1>Welcome to AIONRoid!</h1>
-  <p>Your one-stop solution for cutting-edge AI technologies and services.</p>
-</body>
-</html>
+
+<header class="header">
+  <img alt="AIONRoid Logo - modern tech company logo in blue and white" src="https://scontent.fver1-1.fna.fbcdn.net/v/t39.30808-6/466479459_122128141544453775_8090882865447891237_n.jpg" class="logo" width="180" height="50">
+</header>
+
+<section class="hero">
+  <div id="particles"></div>
+  <div class="hero-content">
+    <h1>Welcome to AIONRoid</h1>
+    <p>Discover cutting-edge AI solutions that transform the way you work. Our platform leverages advanced artificial intelligence to bring automation, efficiency, and innovation to your fingertips.</p>
+    <button class="cta-button">Get Started</button>
+  </div>
+</section>
+
+<section class="section" id="solutions">
+  <h2>Our Solutions</h2>
+  <div class="solutions-grid">
+    <div class="solution-card">
+      <h3><a href="https://aionroid.com/ai-analytics">AI Analytics</a></h3>
+      <p>Transform your data into actionable insights with our advanced AI analytics platform.</p>
+      <ul>
+        <li>Real-time processing</li>
+        <li>Predictive modeling</li>
+        <li>Custom dashboards</li>
+      </ul>
+    </div>
+    <div class="solution-card">
+      <h3><a href="https://aionroid.com/process-automation">Process Automation</a></h3>
+      <p>Streamline your workflows with intelligent automation powered by AI.</p>
+      <ul>
+        <li>Smart workflows</li>
+        <li>Document processing</li>
+        <li>Integration capabilities</li>
+      </ul>
+    </div>
+    <div class="solution-card">
+      <h3><a href="https://aionroid.com/ai-consulting">AI Consulting</a></h3>
+      <p>Expert guidance to implement AI solutions that drive business growth.</p>
+      <ul>
+        <li>Strategy development</li>
+        <li>Implementation support</li>
+        <li>Training and education</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <h2>Get in Touch</h2>
+  <form class="contact-form">
+    <div class="form-group">
+      <input type="text" class="form-input" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-input" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+      <textarea class="form-input" placeholder="Your Message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="cta-button">Send Message</button>
+  </form>
+</section>
+
+<footer class="footer">
+  <p>© All rights of AIONRoid are by teccefcorp.llc</p>
+  <p>Contact: support@aionroid.com</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script>
+window.addEventListener('load', function() {
+  particlesJS('particles', {
+    particles: {
+      number: { value: 80, density: { enable: true, value_area: 800 } },
+      color: { value: '#ffffff' },
+      shape: { type: 'circle' },
+      opacity: { value: 0.5, random: false },
+      size: { value: 3, random: true },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: '#ffffff',
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        enable: true,
+        speed: 6,
+        direction: 'none',
+        random: false,
+        straight: false,
+        out_mode: 'out',
+        bounce: false,
+      }
+    },
+    interactivity: {
+      detect_on: 'canvas',
+      events: {
+        onhover: { enable: true, mode: 'repulse' },
+        onclick: { enable: true, mode: 'push' },
+        resize: true
+      }
+    },
+    retina_detect: true
+  });
+});
+
+// Initialize solution cards animation
+document.querySelectorAll('.solution-card').forEach((card, index) => {
+  card.style.setProperty('--card-index', index);
+});
+
+// Intersection Observer for solution cards
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '50px'
+});
+
+document.querySelectorAll('.solution-card').forEach(card => {
+  observer.observe(card);
+});
+
+// Solution cards click interaction
+document.querySelectorAll('.solution-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const wasExpanded = this.classList.contains('expanded');
+    
+    // Close all cards
+    document.querySelectorAll('.solution-card').forEach(c => {
+      c.classList.remove('expanded');
+    });
+    
+    // Toggle clicked card if it wasn't expanded
+    if (!wasExpanded) {
+      this.classList.add('expanded');
+    }
+  });
+});
+
+// Button click animation
+document.querySelectorAll('.cta-button').forEach(button => {
+  button.addEventListener('click', function() {
+    this.classList.add('clicked');
+    setTimeout(() => this.classList.remove('clicked'), 400);
+  });
+});
+</script>
+
+</body></html>
