@@ -14,6 +14,5 @@ To get started with AIONRoid, follow these steps:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/aionroid.github.io.git
-# aionroid.github.io
-AIONRoid offers cutting-edge AI solutions and services, transforming data into actionable insights with advanced analytics, predictive modeling, and custom dashboards.
+   git clone https://github.com/BigOn1110/aionroid.github.io.git
+   ```
